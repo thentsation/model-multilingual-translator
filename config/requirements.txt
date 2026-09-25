@@ -1,6 +1,6 @@
 streamlit>=1.64.0,<1.65
 transformers>=5.0,<6.0
-sentencepiece>=0.2,<0.3
+sentencepiece>=0.2.2,<0.3
 torch>=2.14.0,<2.15
 requests>=2.33,<3.0
 urllib3>=2.7,<3.0
