@@ -1,54 +1,59 @@
 # Multilingual Translator
 
-This is a simple web application built with Streamlit that allows users to translate text between multiple languages using pre-trained models from Hugging Face's Transformers library.
+[![Python CI](https://github.com/thentsation/model-multilingual-translator/actions/workflows/pipeline_python.yaml/badge.svg)](https://github.com/thentsation/model-multilingual-translator/actions/workflows/pipeline_python.yaml)
+[![Docker CI/CD](https://github.com/thentsation/model-multilingual-translator/actions/workflows/pipeline_docker.yaml/badge.svg)](https://github.com/thentsation/model-multilingual-translator/actions/workflows/pipeline_docker.yaml)
+
+> Leia em [português](README.pt-br.md).
+
+A Streamlit app that translates text between English, Spanish, French and German using pre-trained [Helsinki-NLP MarianMT](https://huggingface.co/Helsinki-NLP) models from Hugging Face's Transformers library.
+
+An in-depth write-up of the productization of this project is available in [ARTIGO.md](ARTIGO.md) (pt-br) / [ARTIGO.en-us.md](ARTIGO.en-us.md) (en-us).
 
 ## Features
 
-- Supports translation between:
-  - English and Spanish
-  - Spanish and English
-  - French and English
-  - English and French
-  - German and English
-  - English and German
-- Saves translations to a text file (`translations.txt`).
-- Logs user actions and errors to a log file (`log.txt`).
-- User feedback on translation usefulness.
+- Translation between English↔Spanish, English↔French, English↔German.
+- Saves every translation to `translations.txt`.
+- Logs translation activity (and failures) through the standard `logging` module.
+- Lets the user flag whether a translation was helpful.
 
-## Requirements
+## Project structure
 
-To run this application, you need to have Python installed along with the following libraries:
-
-- Streamlit
-- Transformers
-- Logging
-- Regex
-
-You can install the required packages using pip:
-
-```bash
-pip install -r config/requirements.txt
+```text
+src/
+├── app.py                        # thin Streamlit UI, not unit-tested (excluded from coverage)
+├── logger.py
+├── models/translation_model.py    # MarianMT model loading + in-process cache
+├── services/
+│   ├── text_sanitizer.py
+│   ├── translation_service.py     # supported languages + inference call
+│   └── translation_workflow.py    # sanitize -> translate -> persist, used by app.py and tested directly
+└── storage/file_storage.py
 ```
 
-## Running the Application
+`app.py` only wires Streamlit widgets to `translation_workflow.process_translation`, which is what's actually tested — running real translation models in CI would mean downloading gigabytes of PyTorch weights per run, so `translation_service`/`translation_model` tests mock the Hugging Face calls instead.
 
-1. Clone this repository or download the script.
-2. Navigate to the directory containing the script.
-3. Run the Streamlit application using the following command:
+## Getting started
 
 ```bash
-streamlit run main.py
+make install    # creates .venv and installs deps (torch + transformers, this takes a while)
+make run        # streamlit run src/app.py
 ```
 
-4. Open the URL provided in your terminal (usually `http://localhost:8501`).
+Run with Docker instead:
 
-## Usage
+```bash
+make docker-build
+make docker-run
+```
 
-1. Select the desired translation language from the dropdown menu.
-2. Enter the text you want to translate (up to 500 characters).
-3. Click the "Translate" button.
-4. The translated text will be displayed, and you can choose to save it or provide feedback.
+## Development
 
-## Logging
+```bash
+make test        # pytest
+make coverage     # pytest with coverage report
+make lint         # ruff check
+make format       # ruff format
+make typecheck    # mypy
+```
 
-The application logs user interactions and any errors that occur during the translation process. You can check `log.txt` for this information.
+CI runs ruff, pytest (coverage gate), mypy and pip-audit on every push/PR, plus a scheduled daily run. Docker images are built, scanned with Trivy, and published to GHCR on `main`. Dependabot keeps pip, the Docker base image, and GitHub Actions up to date, with patch/minor bumps auto-merged. Releases are tagged automatically with [python-semantic-release](https://python-semantic-release.readthedocs.io/).
