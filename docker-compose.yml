@@ -1,0 +1,8 @@
+services:
+  translator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: model-multilingual-translator
+    ports:
+      - '8501:8501'

@@ -1,7 +1,9 @@
-torch
-torchaudio
-torchvision
-transformers
-sentencepiece
-streamlit
-requests
+streamlit>=1.54,<1.55
+transformers>=5.0,<6.0
+sentencepiece>=0.2,<0.3
+torch>=2.13,<2.14
+requests>=2.33,<3.0
+urllib3>=2.7,<3.0
+setuptools>=83.0,<84.0
+pillow>=12.3,<13.0
+idna>=3.15,<4.0
