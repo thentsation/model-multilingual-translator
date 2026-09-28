@@ -2,6 +2,32 @@
 
 <!-- version list -->
 
+## v1.0.3 (2026-09-28)
+
+### Bug Fixes
+
+- **ci**: Open lockfile PRs with RELEASE_PAT so CI runs on them
+  ([`6bd77ba`](https://github.com/thentsation/model-multilingual-translator/commit/6bd77bab0fbd59b2e500984df2d7be1a8a1c7aa1))
+
+### Chores
+
+- **deps**: Update idna requirement in /config
+  ([#5](https://github.com/thentsation/model-multilingual-translator/pull/5),
+  [`96db58f`](https://github.com/thentsation/model-multilingual-translator/commit/96db58f5453b6b03116de17399d515c91add4084))
+
+- **deps**: Update requests requirement in /config
+  ([#3](https://github.com/thentsation/model-multilingual-translator/pull/3),
+  [`2c4bc83`](https://github.com/thentsation/model-multilingual-translator/commit/2c4bc83e25c2aa95abd884e8dd31089aad9a99f4))
+
+- **deps**: Update transformers requirement in /config
+  ([#11](https://github.com/thentsation/model-multilingual-translator/pull/11),
+  [`48aad78`](https://github.com/thentsation/model-multilingual-translator/commit/48aad78c9dfb0560b10935ca82d25240b3fbc6d5))
+
+- **deps**: Update urllib3 requirement in /config
+  ([#9](https://github.com/thentsation/model-multilingual-translator/pull/9),
+  [`a143c31`](https://github.com/thentsation/model-multilingual-translator/commit/a143c317bf6b2ea0b1375a71cce8cb3bca36fb41))
+
+
 ## v1.0.2 (2026-09-28)
 
 ### Bug Fixes
