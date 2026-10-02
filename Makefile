@@ -32,7 +32,7 @@ docker-build:
 	docker build -f docker/Dockerfile -t model-multilingual-translator .
 
 docker-run:
-	docker run --rm -p 8501:8501 model-multilingual-translator
+	docker run --rm -p 8502:8501 model-multilingual-translator
 
 clean:
 	find . -type d -name __pycache__ -not -path './$(VENV)/*' -exec rm -rf {} +
