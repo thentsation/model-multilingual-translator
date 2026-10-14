@@ -218,6 +218,8 @@ typing-extensions==4.16.0
     #   altair
     #   anyio
     #   huggingface-hub
+    #   referencing
+    #   starlette
     #   streamlit
     #   torch
 tzdata==2026.5 ; sys_platform == 'emscripten' or sys_platform == 'win32'
