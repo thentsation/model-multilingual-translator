@@ -1,5 +1,5 @@
 streamlit>=1.66.0,<1.67
-transformers>=5.18.0,<6.0
+transformers>=5.20.0,<6.0
 sentencepiece>=0.2.2,<0.3
 torch>=2.14.1,<2.15
 requests>=2.34.2,<3.0
