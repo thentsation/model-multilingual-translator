@@ -141,7 +141,7 @@ packaging==26.3
     #   transformers
 pandas==3.0.6
     # via streamlit
-pillow==12.3.0
+pillow==13.0.0
     # via
     #   -r config/requirements.txt
     #   streamlit
@@ -191,7 +191,7 @@ six==1.17.0
     # via python-dateutil
 starlette==1.7.0
     # via streamlit
-streamlit==1.66.0
+streamlit==1.66.1
     # via -r config/requirements.txt
 sympy==1.14.0
     # via torch
