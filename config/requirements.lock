@@ -216,7 +216,10 @@ typing-extensions==4.16.0
     # via
     #   altair
     #   anyio
+    #   httpx2
     #   huggingface-hub
+    #   referencing
+    #   starlette
     #   streamlit
     #   torch
 tzdata==2026.5
