@@ -4,7 +4,9 @@ altair==6.3.0
     # via streamlit
 annotated-doc==0.0.5
     # via typer
-anyio==4.15.1
+annotated-types==0.8.0
+    # via pydantic
+anyio==4.16.0
     # via
     #   httpx2
     #   starlette
@@ -17,7 +19,7 @@ certifi==2026.10.23
     # via requests
 charset-normalizer==3.5.2
     # via requests
-click==8.5.0
+click==8.5.1
     # via
     #   huggingface-hub
     #   streamlit
@@ -26,13 +28,13 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   tqdm
     #   typer
-cuda-bindings==13.4.4 ; python_full_version < '3.15' and sys_platform == 'linux'
+cuda-bindings==13.5.0 ; python_full_version < '3.15' and sys_platform == 'linux'
     # via torch
-cuda-pathfinder==1.8.4 ; python_full_version < '3.15' and sys_platform == 'linux'
+cuda-pathfinder==1.8.6 ; python_full_version < '3.15' and sys_platform == 'linux'
     # via cuda-bindings
-cuda-toolkit==13.0.3.0 ; sys_platform == 'linux'
+cuda-toolkit==13.2.2 ; sys_platform == 'linux'
     # via torch
-filelock==4.2.4
+filelock==4.2.10
     # via
     #   huggingface-hub
     #   torch
@@ -44,7 +46,7 @@ h11==0.16.0
     # via
     #   httpcore2
     #   uvicorn
-hf-xet==1.7.0 ; platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
+hf-xet==1.8.0 ; platform_machine == 'AMD64' or platform_machine == 'ARM64' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'
     # via huggingface-hub
 httpcore2==2.16.0 ; sys_platform != 'emscripten'
     # via httpx2
@@ -52,7 +54,7 @@ httpx2==2.16.0
     # via huggingface-hub
 httpx2-jsfetch==1.0 ; sys_platform == 'emscripten'
     # via httpx2
-huggingface-hub==2.3.0
+huggingface-hub==2.4.0
     # via
     #   tokenizers
     #   transformers
@@ -81,7 +83,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mpmath==1.3.0
     # via sympy
-narwhals==2.27.1
+narwhals==2.28.0
     # via altair
 networkx==3.7
     # via torch
@@ -91,30 +93,30 @@ numpy==2.5.4
     #   pydeck
     #   streamlit
     #   transformers
-nvidia-cublas==13.1.1.3 ; sys_platform == 'linux'
+nvidia-cublas==13.4.1.3 ; sys_platform == 'linux'
     # via
     #   cuda-toolkit
     #   nvidia-cudnn-cu13
     #   nvidia-cusolver
-nvidia-cuda-cupti==13.0.85 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cuda-cccl==13.3.5.0.6 ; sys_platform == 'linux'
+    # via nvidia-nvshmem-cu13
+nvidia-cuda-cupti==13.2.86 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
-nvidia-cuda-nvrtc==13.0.88 ; sys_platform == 'linux'
+nvidia-cuda-nvrtc==13.2.86 ; sys_platform == 'linux'
     # via
     #   cuda-toolkit
     #   nvidia-cublas
-nvidia-cuda-runtime==13.0.96 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cuda-runtime==13.2.86 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
-nvidia-cudnn-cu13==9.24.0.43 ; sys_platform == 'linux'
+nvidia-cudnn-cu13==9.26.0.51 ; sys_platform == 'linux'
     # via torch
-nvidia-cufft==12.0.0.61 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cufft==12.2.0.57 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
-nvidia-cufile==1.15.1.6 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cufile==1.17.1.22 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
-nvidia-curand==10.4.0.35 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cusolver==12.2.0.11 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
-nvidia-cusolver==12.0.4.66 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
-    # via cuda-toolkit
-nvidia-cusparse==12.6.3.3 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-cusparse==12.7.10.12 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via
     #   cuda-toolkit
     #   nvidia-cusolver
@@ -122,15 +124,15 @@ nvidia-cusparselt-cu13==0.8.1 ; sys_platform == 'linux'
     # via torch
 nvidia-nccl-cu13==2.30.7 ; sys_platform == 'linux'
     # via torch
-nvidia-nvjitlink==13.4.92 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-nvjitlink==13.5.37 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via
     #   cuda-toolkit
     #   nvidia-cufft
     #   nvidia-cusolver
     #   nvidia-cusparse
-nvidia-nvshmem-cu13==3.4.5 ; sys_platform == 'linux'
+nvidia-nvshmem-cu13==3.7.2 ; sys_platform == 'linux'
     # via torch
-nvidia-nvtx==13.0.85 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
+nvidia-nvtx==13.2.86 ; (platform_machine == 'aarch64' and sys_platform == 'linux') or (platform_machine == 'x86_64' and sys_platform == 'linux')
     # via cuda-toolkit
 packaging==26.3
     # via
@@ -138,7 +140,7 @@ packaging==26.3
     #   huggingface-hub
     #   streamlit
     #   transformers
-pandas==3.1.0
+pandas==3.1.1
     # via streamlit
 pillow==13.0.0
     # via
@@ -146,15 +148,19 @@ pillow==13.0.0
     #   streamlit
 protobuf==7.36.2
     # via streamlit
-pyarrow==26.0.0
+pyarrow==26.0.1
     # via streamlit
+pydantic==2.14.3
+    # via typer
+pydantic-core==2.50.4
+    # via pydantic
 pydeck==0.9.3
     # via streamlit
 pygments==2.21.0
     # via rich
-python-dateutil==3.0.0
+python-dateutil==4.0.0
     # via pandas
-python-multipart==0.0.32
+python-multipart==0.0.33
     # via streamlit
 pyyaml==6.0.3
     # via
@@ -164,7 +170,7 @@ referencing==0.37.0
     # via
     #   jsonschema
     #   jsonschema-specifications
-regex==2026.9.29
+regex==2026.11.9
     # via transformers
 requests==2.34.2
     # via
@@ -178,7 +184,7 @@ rpds-py==2026.9.1
     #   referencing
 safetensors==0.8.0
     # via transformers
-sentencepiece==0.2.2
+sentencepiece==0.2.3
     # via -r config/requirements.txt
 setuptools==84.2.1
     # via
@@ -186,8 +192,6 @@ setuptools==84.2.1
     #   torch
 shellingham==1.5.4
     # via typer
-six==1.17.0
-    # via python-dateutil
 starlette==1.10.0
     # via streamlit
 streamlit==1.66.1
@@ -196,30 +200,35 @@ sympy==1.14.0
     # via torch
 tokenizers==0.23.3
     # via transformers
-torch==2.14.1
+torch==2.15.0
     # via -r config/requirements.txt
 tqdm==4.70.1
     # via
     #   huggingface-hub
     #   transformers
-transformers==5.20.2
+transformers==5.22.2
     # via -r config/requirements.txt
-triton==3.8.0 ; python_full_version < '3.15' and sys_platform == 'linux'
+triton==3.9.0 ; python_full_version < '3.16' and sys_platform == 'linux'
     # via torch
 truststore==0.10.5 ; sys_platform != 'emscripten'
     # via
     #   httpcore2
     #   httpx2
-typer==0.27.3
+typer==0.29.0
     # via transformers
 typing-extensions==4.16.0
     # via
     #   altair
     #   anyio
     #   huggingface-hub
+    #   pydantic
+    #   pydantic-core
     #   streamlit
     #   torch
-tzdata==2026.5
+    #   typing-inspection
+typing-inspection==0.4.5
+    # via pydantic
+tzdata==2026.6
     # via
     #   pandas
     #   python-dateutil
@@ -231,5 +240,5 @@ uvicorn==0.54.0
     # via streamlit
 watchdog==6.0.0 ; sys_platform != 'darwin'
     # via streamlit
-websockets==17.3
+websockets==17.4
     # via streamlit
